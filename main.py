@@ -63,8 +63,8 @@ while (exercise != 0):
 	#####################################################
 	elif exercise == 6:
 		username = input("Enter a username: \n")
-		# TODO: put your regex here
-		if True:	# TODO: test your search here
+		userNameRegex = re.compile(r"^([a-z]|[A-Z])\w{5,15}$")
+		if userNameRegex.search(str(username)) != None:
 			print("Valid")
 		else:
 			print("Invalid")
@@ -74,7 +74,7 @@ while (exercise != 0):
 	#####################################################
 	elif exercise == 7:
 		email = input("Enter a email address: \n")
-		# TODO: put your regex here
+		emailRegex = re.compile(r"^([a-z]|[A-Z])(\w+\.\w+)@")
 		if True:	# TODO: test your search here
 			print("Valid")
 		else:
