@@ -52,7 +52,7 @@ while (exercise != 0):
 	#####################################################
 	elif exercise == 5:
 		username = input("Enter a username: \n")
-		userNameRegex = re.compile(r"^([a-z]|[A-Z])(\w*\.\w*)*?")
+		userNameRegex = re.compile(r"^([a-z]|[A-Z])(\w+\.\w+)?(\w+)$")
 		if userNameRegex.search(str(username)) != None:
 			print("Valid")
 		else:
