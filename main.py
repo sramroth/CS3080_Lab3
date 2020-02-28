@@ -74,8 +74,8 @@ while (exercise != 0):
 	#####################################################
 	elif exercise == 7:
 		email = input("Enter a email address: \n")
-		emailRegex = re.compile(r"^([a-z]|[A-Z])(\w+\.\w+)@")
-		if True:	# TODO: test your search here
+		emailRegex = re.compile(r"^([a-z]|[A-Z])\w+(\w+\.\w+)?@(\w+\.\w{2,4})")
+		if emailRegex.search(str(email)) != None:
 			print("Valid")
 		else:
 			print("Invalid")
