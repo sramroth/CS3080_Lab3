@@ -52,7 +52,7 @@ while (exercise != 0):
 	#####################################################
 	elif exercise == 5:
 		username = input("Enter a username: \n")
-		userNameRegex = re.compile(r"^([a-z]|[A-Z])(\w+\.\w+)?(\w+)$")
+		userNameRegex = re.compile(r"^([a-z]|[A-Z])[\w.]*")
 		if userNameRegex.search(str(username)) != None:
 			print("Valid")
 		else:
@@ -74,7 +74,7 @@ while (exercise != 0):
 	#####################################################
 	elif exercise == 7:
 		email = input("Enter a email address: \n")
-		emailRegex = re.compile(r"^([a-z]|[A-Z])\w+(\w+\.\w+)?@(\w+\.\w{2,4})")
+		emailRegex = re.compile(r"^([a-z]|[A-Z])[\w.]*@\w+\.\w{3,4}")
 		if emailRegex.search(str(email)) != None:
 			print("Valid")
 		else:
@@ -85,12 +85,13 @@ while (exercise != 0):
 	#####################################################
 	elif exercise == 8:
 		address = input("Enter a city, state and zip: \n")
-		# TODO: put your regex here
-		# TODO: use the regex to pull of the city, state, and zip here
-
-		print("City: ")	# TODO: add the city here
-		print("State: ") # TODO: add the state here
-		print("Zip: ") # TODO: add the zip here
+		addressRegex = re.compile(r"(?P<city>^[A-Z][A-Za-z.\s]*)\,\s+(?P<state>[A-za-z]{2})\s+(?P<zipcode>(0[1-9]|[1-9]\d)(\d{3}(-\d{4})?)$)")
+		
+		matches = addressRegex.search(str(address))
+		
+		print("City: " + matches.group("city"))	# TODO: add the city here
+		print("State: " + matches.group("state")) # TODO: add the state here
+		print("Zip: " + matches.group("zipcode")) # TODO: add the zip here
 
 	#####################################################
 	# Invalid choice 
